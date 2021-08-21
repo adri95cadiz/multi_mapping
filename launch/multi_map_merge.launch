@@ -1,0 +1,48 @@
+<launch>
+
+  <arg name="first_mapper"  default="mapper1"/>
+  <arg name="second_mapper" default="mapper2"/>
+
+  <arg name="first_mapper_x_pos" default=" 1.0"/>
+  <arg name="first_mapper_y_pos" default=" 1.0"/>
+  <arg name="first_mapper_z_pos" default=" 0.0"/>
+  <arg name="first_mapper_yaw"   default=" 0.0"/>
+
+  <arg name="second_mapper_x_pos" default=" 0.0"/>
+  <arg name="second_mapper_y_pos" default="-1.0"/>
+  <arg name="second_mapper_z_pos" default=" 0.3"/>
+  <arg name="second_mapper_yaw"   default=" 0.0"/>
+
+  <group ns="$(arg first_mapper)/map_merge">
+    <param name="init_pose_x"   value="$(arg first_mapper_x_pos)"/>
+    <param name="init_pose_y"   value="$(arg first_mapper_y_pos)"/>
+    <param name="init_pose_z"   value="$(arg first_mapper_z_pos)"/>
+    <param name="init_pose_yaw" value="$(arg first_mapper_yaw)"  />
+  </group>
+
+  <group ns="$(arg second_mapper)/map_merge">
+    <param name="init_pose_x"   value="$(arg second_mapper_x_pos)"/>
+    <param name="init_pose_y"   value="$(arg second_mapper_y_pos)"/>
+    <param name="init_pose_z"   value="$(arg second_mapper_z_pos)"/>
+    <param name="init_pose_yaw" value="$(arg second_mapper_yaw)"  />
+  </group>
+
+  <node pkg="multirobot_map_merge" type="map_merge" respawn="false" name="map_merge" output="screen">
+    <param name="robot_map_topic" value="map"/>
+    <param name="robot_namespace" value="mapper"/>
+    <param name="merged_map_topic" value="map"/>
+    <param name="world_frame" value="world"/>
+    <param name="known_init_poses" value="true"/>
+    <param name="merging_rate" value="0.5"/>
+    <param name="discovery_rate" value="0.05"/>
+    <param name="estimation_rate" value="0.1"/>
+    <param name="estimation_confidence" value="1.0"/>
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="world_to_$(arg first_mapper)_tf_broadcaster"  args="0 0 0 0 0 0 /map /$(arg first_mapper)/map 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="world_to_$(arg second_mapper)_tf_broadcaster" args="0 0 0 0 0 0 /map /$(arg second_mapper)/map 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="world_to_map_tf_broadcaster"  args="0 0 0 0 0 0 /world /map 100"/>
+
+</launch>
+
+<!-- http://wiki.ros.org/multirobot_map_merge -->

@@ -1,0 +1,19 @@
+<launch>
+
+  <!-- BEGIN MAPPER 1 - ROBOT -->
+  <group ns="mapper1">
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 1 -y 2 -z 0" />
+      <arg name="robot_name"  value="mapper1" />
+    </include>
+  </group>
+
+  <!-- BEGIN MAPPER 2 - DRONE -->
+  <group ns="mapper2">
+    <include file="$(find multi_drone)/launch/one_drone.launch" >
+      <arg name="y" value="-1" />
+      <arg name="drone_name"  value="mapper2" />
+    </include>
+  </group>
+
+</launch>
