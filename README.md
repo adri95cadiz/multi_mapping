@@ -1,5 +1,7 @@
 # multi_mapping
 
+ROS package for multiple heterogeneous platforms mapping and navigating in real time. Uses Hector Quadrotor drones and Turtlebot3 Burger robots collaborating with Hector-SLAM and SLAM Gmapping to construct a map together and navigate the environment.
+
 ## Installation 
 
 **Depends on the multi_robot and multi_drone packages from my repositories you can find here:**
