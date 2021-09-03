@@ -60,11 +60,6 @@ $ roslaunch multi_mapping navigation.launch
 $ rosrun rviz rviz -d `rospack find multi_mapping`/rviz/multi_mapping_navigation.rviz
 ```
 
-**Launch multi_map_merge again to update map**
-```
-$ roslaunch multi_mapping multi_map_merge.launch
-```
-
 **Save map**
 ```
 $ rosrun map_server map_saver -f ~/map
