@@ -9,21 +9,59 @@
 
   <group ns="mapper1">
     <include file="$(find multi_robot)/launch/move_base.launch" >
-      <arg name="initial_pose_x" value=" 1" />
-      <arg name="initial_pose_y" value=" 1" />
-      <arg name="initial_pose_z" value=" 0" />
+      <arg name="initial_pose_x" value="0.5" />
+      <arg name="initial_pose_y" value="0.5" />
+      <arg name="initial_pose_z" value="  0" />
       <arg name="robot_name" value="mapper1"/>
     </include>
   </group>
 
   <group ns="mapper2">
     <include file="$(find multi_drone)/launch/move_base.launch" >
-      <arg name="initial_pose_x" value=" 0" />
-      <arg name="initial_pose_y" value="-1" />
-      <arg name="initial_pose_a" value=" 0" />
+      <arg name="initial_pose_x" value="   0" />
+      <arg name="initial_pose_y" value="-1.8" />
+      <arg name="initial_pose_a" value="   0" />
       <arg name="drone_name" value="mapper2"/>
     </include>
   </group>
+
+  <!--
+  <group ns="mapper3">
+    <include file="$(find multi_robot)/launch/move_base.launch" >
+      <arg name="initial_pose_x" value="-0.5" />
+      <arg name="initial_pose_y" value=" 0.5" />
+      <arg name="initial_pose_z" value="   0" />
+      <arg name="robot_name" value="mapper3"/>
+    </include>
+  </group>
+
+  <group ns="mapper4">
+    <include file="$(find multi_drone)/launch/move_base.launch" >
+      <arg name="initial_pose_x" value="  0" />
+      <arg name="initial_pose_y" value="1.8" />
+      <arg name="initial_pose_a" value="  0" />
+      <arg name="drone_name" value="mapper4"/>
+    </include>
+  </group>
+
+  <group ns="mapper5">
+    <include file="$(find multi_robot)/launch/move_base.launch" >
+      <arg name="initial_pose_x" value="-0.5" />
+      <arg name="initial_pose_y" value="-0.5" />
+      <arg name="initial_pose_z" value="   0" />
+      <arg name="robot_name" value="mapper5"/>
+    </include>
+  </group>
+
+  <group ns="mapper6">
+    <include file="$(find multi_drone)/launch/move_base.launch" >
+      <arg name="initial_pose_x" value=" 0.5" />
+      <arg name="initial_pose_y" value="-0.5" />
+      <arg name="initial_pose_a" value="   0" />
+      <arg name="drone_name" value="mapper6"/>
+    </include>
+  </group>
+  -->
 
   <!-- Launching Rviz -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multi_mapping)/rviz/multi_mapping_navigation.rviz" />

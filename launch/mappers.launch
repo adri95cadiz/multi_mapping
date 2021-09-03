@@ -3,7 +3,7 @@
   <!-- BEGIN MAPPER 1 - ROBOT -->
   <group ns="mapper1">
     <include file="$(find multi_robot)/launch/one_robot.launch" >
-      <arg name="init_pose" value="-x 1 -y 2 -z 0" />
+      <arg name="init_pose" value="-x 1 -y 1 -z 0" />
       <arg name="robot_name"  value="mapper1" />
     </include>
   </group>
@@ -15,5 +15,46 @@
       <arg name="drone_name"  value="mapper2" />
     </include>
   </group>
+
+  <!-- BEGIN MAPPER 3 - ROBOT -->
+  <!--
+  <group ns="mapper3">
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x -0.5 -y 0.5 -z 0" />
+      <arg name="robot_name"  value="mapper3" />
+    </include>
+  </group>
+  -->
+
+  <!-- BEGIN MAPPER 4 - DRONE -->
+  <!--
+  <group ns="mapper4">
+    <include file="$(find multi_drone)/launch/one_drone.launch" >
+      <arg name="y" value="1.8" />
+      <arg name="drone_name"  value="mapper4" />
+    </include>
+  </group>
+  -->
+
+  <!-- BEGIN MAPPER 5 - ROBOT -->
+  <!--
+  <group ns="mapper5">
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x -0.5 -y -0.5 -z 0" />
+      <arg name="robot_name"  value="mapper5" />
+    </include>
+  </group>
+  -->
+
+  <!-- BEGIN MAPPER 6 - DRONE -->
+  <!--
+  <group ns="mapper6">
+    <include file="$(find multi_drone)/launch/one_drone.launch" >
+      <arg name="x" value=" 0.5" />
+      <arg name="y" value="-0.5" />
+      <arg name="drone_name"  value="mapper6" />
+    </include>
+  </group>
+  -->
 
 </launch>
